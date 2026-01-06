@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: todoapp
-        image: ikulyk404/todoapp:3.0.0
+        image: ikulyk404/todoapp:3.0.1
         volumeMounts:
         - name: data
           mountPath: /app/data
@@ -29,6 +29,8 @@ spec:
         - name: app-config-volume
           mountPath: "/app/configs"
           readOnly: true
+        - name: mysql-db
+          mountPath: "
         resources:
           requests:
             memory: "256Mi"
@@ -47,6 +49,11 @@ spec:
             secretKeyRef:
               name: app-secret
               key: SECRET_KEY
+        - name: DB_CONNECTION
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: DB_CONNECTION
         ports:
         - containerPort: 8080
         livenessProbe:
