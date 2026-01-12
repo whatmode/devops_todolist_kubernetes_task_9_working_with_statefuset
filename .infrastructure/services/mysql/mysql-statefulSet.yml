@@ -1,14 +1,17 @@
-apiVesion:: apps/v1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
   namespace: mysql
-template:
-  spec:
-    serviceName: "mysql"
-    replicas: 3
-    selector:
-      matchLabels:
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  serviceName: "mysql"
+  replicas: 3
+  template:
+    metadata:
+      labels:
         app: mysql
     spec:
       containers:
@@ -67,11 +70,11 @@ template:
       - name: mysql-config
         configMap:
           name: mysql-config
-volumeClaimTemplates:
-- metadata:
-  name: data
-  spec:
-    accessModes: ["ReadWriteOnce"]
-    resources:
-      requests:
-        storage: 2Gi
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 2Gi

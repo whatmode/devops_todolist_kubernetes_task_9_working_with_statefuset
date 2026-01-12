@@ -4,8 +4,8 @@ metadata:
   name: mysql-config
   namespace: mysql
 data:
-  init.sql: | 
-    GRANT ALL PRIVILEGES ON todolist.* TO 'app_user'@'%';
+  init.sql: |
+    GRANT ALL PRIVILEGES ON todolist.* TO 'todoapp'@'%';
     USE todolist;
     CREATE TABLE counter (
       id INT AUTO_INCREMENT PRIMARY KEY,
