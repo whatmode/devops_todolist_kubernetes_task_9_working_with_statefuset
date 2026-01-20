@@ -64,14 +64,14 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        "HOST": os.environ.get("DB_HOST", "localhost"),
-        "PORT": int(os.environ.get("DB_PORT", 3306)),
-        "USER": os.environ.get("MYSQL_USER"),
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.environ.get("MYSQL_DATABASE", "todolist"),
+        "HOST": os.environ.get("MYSQL_HOST", "mysql-0.mysql.mysql.svc.cluster.local"),
+        "PORT": int(os.environ.get("MYSQL_PORT", 3306)),
+        "USER": os.environ.get("MYSQL_USER", "root"),
         "PASSWORD": os.environ.get("MYSQL_PASSWORD"),
     }
-  }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
