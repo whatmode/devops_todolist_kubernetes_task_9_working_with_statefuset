@@ -25,7 +25,7 @@
 
 4. **Verify Data Remains**
     ```bash
-    kubectl -n todoapp exec -it <mysql-pod-name> -- bash
+    kubectl -n mysql exec -it <mysql-pod-name> -- bash
     ```
     ```sql
     SELECT * FROM todos;
