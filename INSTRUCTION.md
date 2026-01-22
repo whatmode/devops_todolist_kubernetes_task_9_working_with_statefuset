@@ -9,7 +9,7 @@
 
 1. **Connect to MySQL Pod**
     ```bash
-    kubectl -n todoapp exec -it <mysql-pod-name> -- bash
+    kubectl -n mysql exec -it <mysql-pod-name> -- bash
     ```
 
 2. **Verify Test Data**
